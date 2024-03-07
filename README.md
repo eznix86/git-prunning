@@ -7,9 +7,9 @@ git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 ```
 Explanation:
 
-`git branch –merged`  : first, you are simply listing all the branches currently merged with your current checked out branch;
-`egrep -v "(^*|main|dev)"` : you are using the invert matching feature of grep in order to exclude any branches that may be called “main” or “dev”.
-`xargs git branch -d` : you are deleting every single branch listed before.
+- `git branch –merged`  : first, you are simply listing all the branches currently merged with your current checked out branch;
+- `egrep -v "(^*|main|dev)"` : you are using the invert matching feature of grep in order to exclude any branches that may be called “main” or “dev”.
+- `xargs git branch -d` : you are deleting every single branch listed before.
 
 To delete all unused remote branches which has not been merged:
 
@@ -29,7 +29,8 @@ The git remote prune origin command is used to remove local references to remote
 
 When you fetch updates from a remote repository, your local repository keeps references to remote branches. If a branch is deleted on the remote repository, your local repository might still have references to it. Running git remote prune origin will remove these stale references, keeping your local repository in sync with the remote one.
 
-Do it automatically with (this happens on every fetch)
+Do it automatically with (this happens on every fetch):
+
 ```
 git config --global fetch.prune true
 ```
